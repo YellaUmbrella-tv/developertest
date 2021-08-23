@@ -9,12 +9,11 @@
 		}
 	},
 	"filetemplates/AD/DUB.filebase": {
+		"base": [
+			"AD/AD.filebase"
+		],
 		"filetype": {
 			"displaystyle": "dub",
-			"requireemptyfolder": true,
-			"options": {
-				"copyaudiofiles": true
-			}
 		}
 	},
 	"filetemplates/AD/ESF.filetemplate": {
