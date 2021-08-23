@@ -1,0 +1,1256 @@
+{
+	"filetemplates/AD/AD.filebase": {
+		"filetype": {
+			"displaystyle": "ad",
+			"requireemptyfolder": true,
+			"options": {
+				"copyaudiofiles": true
+			}
+		}
+	},
+	"filetemplates/AD/DUB.filebase": {
+		"filetype": {
+			"displaystyle": "dub",
+			"requireemptyfolder": true,
+			"options": {
+				"copyaudiofiles": true
+			}
+		}
+	},
+	"filetemplates/AD/ESF.filetemplate": {
+		"name": "ESEF Audio Description",
+		"description": "ESEF (.ESF) file for use with ADvantage or ADept.",
+		"base": [
+			"AD/AD.filebase"
+		],
+		"schema": [
+			"AD/esf.schema"
+		],
+		"defaulttag": "AD",
+		"filetype": {
+			"type": "esef",
+			"ext": "esf",
+			"options": {
+				"FPS": 25
+			}
+		}
+	},
+	"filetemplates/AD/SRTAD.filetemplate": {
+		"name": "srtad Audio Description",
+		"description": "Yella .srtad file for Audio Description",
+		"base": [
+			"AD/AD.filebase"
+		],
+		"filetype": {
+			"type": "srtad",
+			"ext": "srtad"
+		}
+	},
+	"filetemplates/AD/SRTDUB.filetemplate": {
+		"name": "srtdub Dubbing file",
+		"description": "Yella .srtdub file for Dubbing",
+		"base": [
+			"AD/DUB.filebase"
+		],
+		"filetype": {
+			"type": "srtdub",
+			"ext": "srtdub"
+		}
+	},
+	"filetemplates/AD/esf.schema": {
+		"title": "Edit ESF Template",
+		"type": "object",
+		"options": {
+			"disable_collapse": true,
+			"disable_array_add": false,
+			"disable_array_delete": false,
+			"disable_array_reorder": false,
+			"disable_properties": true
+		},
+		"properties": {
+			"name": {
+				"title": "Title/short description",
+				"description": "Enter a short name for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"description": {
+				"title": "Description",
+				"description": "Enter a long description for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"base": {
+				"title": "Base on File Templates",
+				"description": "Add an ordered list of based File Templates to base this template on",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"schema": {
+				"title": "Schema(s) to edit this template",
+				"description": "Add an ordered list of schema files",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"defaulttag": {
+				"title": "Default Column Tag name ",
+				"description": "Enter the default tag to use when adding to projects",
+				"type": "string"
+			},
+			"filetype": {
+				"title": "File type and options",
+				"description": "File type selection and options",
+				"type": "object",
+				"options": {
+					"disable_collapse": true
+				},
+				"properties": {
+					"type": {
+						"title": "File Type",
+						"description": "Select the file type which this File Template will create",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"ext": {
+						"title": "Extension",
+						"description": "Enter the file extension to use",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"options": {
+						"title": "ESEF Options",
+						"description": "Select options for ESEF file creation",
+						"type": "object",
+						"options": {
+							"disable_collapse": true
+						},
+						"properties": {
+							"FPS": {
+								"title": "frame rate",
+								"description": "Select the frame rate of the file created",
+								"type": "string",
+								"enum": [
+									23.976,
+									24,
+									25,
+									29.97
+								]
+							}
+						}
+					}
+				}
+			},
+			"templates": {
+				"title": "Style templates to use at creation",
+				"description": "Style/limit/check templates to set when adding to a project",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string",
+					"#ref": "enumstyletemplates",
+					"enum": []
+				}
+			},
+			"basenames": {
+				"options": {
+					"hidden": true
+				}
+			}
+		}
+	},
+	"filetemplates/AD/ttal.filetemplate": {
+		"name": "TTAL AD/Dub",
+		"description": "TTAL (.ttal) file for use with Netflix.",
+		"base": [
+			"AD/DUB.filebase"
+		],
+		"schema": [
+			"AD/ttal.schema"
+		],
+		"defaulttag": "TTAL",
+		"filetype": {
+			"type": "ttal",
+			"ext": "ttal",
+			"options": {
+				"FPS": 25
+			}
+		}
+	},
+	"filetemplates/AD/ttal.schema": {
+		"title": "Edit TTAL Template",
+		"type": "object",
+		"options": {
+			"disable_collapse": true,
+			"disable_array_add": false,
+			"disable_array_delete": false,
+			"disable_array_reorder": false,
+			"disable_properties": true
+		},
+		"properties": {
+			"name": {
+				"title": "Title/short description",
+				"description": "Enter a short name for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"description": {
+				"title": "Description",
+				"description": "Enter a long description for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"base": {
+				"title": "Base on File Templates",
+				"description": "Add an ordered list of based File Templates to base this template on",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"schema": {
+				"title": "Schema(s) to edit this template",
+				"description": "Add an ordered list of schema files",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"defaulttag": {
+				"title": "Default Column Tag name ",
+				"description": "Enter the default tag to use when adding to projects",
+				"type": "string"
+			},
+			"filetype": {
+				"title": "File type and options",
+				"description": "File type selection and options",
+				"type": "object",
+				"options": {
+					"disable_collapse": true
+				},
+				"properties": {
+					"type": {
+						"title": "File Type",
+						"description": "Select the file type which this File Template will create",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"ext": {
+						"title": "Extension",
+						"description": "Enter the file extension to use",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"options": {
+						"title": "TTAL Options",
+						"description": "Select options for TTAL file creation",
+						"type": "object",
+						"options": {
+							"disable_collapse": true
+						},
+						"properties": {
+							"type": {
+								"title": "Script Type",
+								"description": "Select the script type of the file created",
+								"type": "string",
+								"enum": [
+									"DIALOG_LIST",
+									"AUDIO_DESCRIPTION_SCRIPT",
+									"DUB_SCRIPT",
+									"LANGUAGE_TEMPLATE",
+									"SUBTITLE",
+									"CLOSED_CAPTIONING",
+									"FORCED_NARRATIVE"
+								],
+								"default": "DUB_SCRIPT"
+							},
+							"originalLanguage": {
+								"title": "Original Language",
+								"description": "Enter the Original Language of the file created",
+								"type": "string"
+							},
+							"lang": {
+								"title": "Language",
+								"description": "Enter the Language of the file created",
+								"type": "string"
+							},
+							"FPS": {
+								"title": "frame rate",
+								"description": "Select the frame rate of the file created",
+								"type": "string",
+								"enum": [
+									23.976,
+									24,
+									25,
+									29.97,
+									30,
+									59.94,
+									60
+								]
+							},
+							"copyaudiofiles": {
+								"title": "Select if to copy audio files when duplicating",
+								"type": "boolean",
+								"options": {
+									"hidden": true
+								},
+								"default": true
+							}
+						}
+					},
+					"displaystyle": {
+						"title": "Display style for this file",
+						"description": "Select the required display style",
+						"type": "string",
+						"options": {
+							"hidden": true
+						},
+						"default": "dub"
+					},
+					"requireemptyfolder": {
+						"title": "Choose to require an empty filder on creat",
+						"type": "boolean",
+						"options": {
+							"hidden": true
+						},
+						"default": true
+					}
+				}
+			},
+			"templates": {
+				"title": "Style templates to use at creation",
+				"description": "Style/limit/check templates to set when adding to a project",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string",
+					"#ref": "enumstyletemplates",
+					"enum": []
+				}
+			},
+			"basenames": {
+				"options": {
+					"hidden": true
+				}
+			}
+		}
+	},
+	"filetemplates/EBU/EBU.filetemplate": {
+		"name": "EBU STL",
+		"description": "Generic EBU .STL, defaulting to TTXT LATIN English",
+		"base": [],
+		"schema": [
+			"EBU/ebustl.schema"
+		],
+		"defaulttag": "STL",
+		"filetype": {
+			"type": "ebustl",
+			"ext": "stl",
+			"options": {
+				"FPS": "25",
+				"encoding": "LATIN",
+				"DisplayStandardCode": 1,
+				"GSI": {
+					"LanguageCode": "0x09 English"
+				}
+			}
+		}
+	},
+	"filetemplates/EBU/ebustl.schema": {
+		"title": "Edit ESF Template",
+		"type": "object",
+		"options": {
+			"disable_collapse": true,
+			"disable_array_add": false,
+			"disable_array_delete": false,
+			"disable_array_reorder": false,
+			"disable_properties": true
+		},
+		"properties": {
+			"name": {
+				"title": "Title/short description",
+				"description": "Enter a short name for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"description": {
+				"title": "Description",
+				"description": "Enter a long description for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"base": {
+				"title": "Base on File Templates",
+				"description": "Add an ordered list of based File Templates to base this template on",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"schema": {
+				"title": "Schema(s) to edit this template",
+				"description": "Add an ordered list of schema files",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"defaulttag": {
+				"title": "Default Column Tag name ",
+				"description": "Enter the default tag to use when adding to projects",
+				"type": "string"
+			},
+			"filetype": {
+				"title": "File type and options",
+				"description": "File type selection and options",
+				"type": "object",
+				"options": {
+					"disable_collapse": true
+				},
+				"properties": {
+					"type": {
+						"title": "File Type",
+						"description": "Select the file type which this File Template will create",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"ext": {
+						"title": "Extension",
+						"description": "Enter the file extension to use",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"options": {
+						"title": "EBUSTL Options",
+						"description": "Selects options which apply to EBU STL files",
+						"type": "object",
+						"options": {
+							"disable_collapse": true
+						},
+						"properties": {
+							"FPS": {
+								"title": "frame rate",
+								"description": "Select the frame rate of the file created",
+								"type": "string",
+								"enum": [
+									"25",
+									"29.97"
+								]
+							},
+							"encoding": {
+								"title": "EBU encoding",
+								"description": "Select the character encoding to use when creating the file",
+								"type": "string",
+								"enum": [
+									"LATIN",
+									"LATINCYRILLIC",
+									"LATINGREEK",
+									"LATINARABIC",
+									"LATINHEBREW"
+								]
+							},
+							"DisplayStandardCode": {
+								"title": "Display Standard",
+								"description": "Select the display standard - generally EBU files should be Teletext",
+								"type": "number",
+								"enum": [
+									0,
+									1,
+									2
+								],
+								"options": {
+									"enum_titles": [
+										"Open Subtitles",
+										"Teletext 1",
+										"Teletext 2"
+									]
+								}
+							},
+							"GSI": {
+								"title": "EBU GSI options",
+								"description": "Select the options for the EBU header of the file created",
+								"properties": {
+									"LanguageCode": {
+										"title": "Language Code",
+										"description": "Select the language of the file created",
+										"type": "string",
+										"enum": [
+											"0x00 Unknown/not applicable",
+											"0x01 Albanian",
+											"0x02 Breton",
+											"0x03 Catalan",
+											"0x04 Croatian",
+											"0x05 Welsh",
+											"0x06 Czech",
+											"0x07 Danish",
+											"0x08 German",
+											"0x09 English",
+											"0x0A Spanish",
+											"0x0B Esperanto",
+											"0x0C Estonian",
+											"0x0D Basque",
+											"0x0E Faroese",
+											"0x0F French",
+											"0x10 Frisian",
+											"0x11 Irish",
+											"0x12 Gaelic",
+											"0x13 Galician",
+											"0x14 Icelandic",
+											"0x15 Italian",
+											"0x16 Lappish",
+											"0x17 Latin",
+											"0x18 Latvian",
+											"0x19 Luxembourgian",
+											"0x1A Lithuanian",
+											"0x1B Hungarian",
+											"0x1C Maltese",
+											"0x1D Dutch",
+											"0x1E Norwegian",
+											"0x1F Occitan",
+											"0x20 Polish",
+											"0x21 Portugese",
+											"0x22 Romanian",
+											"0x23 Romansh",
+											"0x24 Serbian",
+											"0x25 Slovak",
+											"0x26 Slovenian",
+											"0x27 Finnish",
+											"0x28 Swedish",
+											"0x29 Turkish",
+											"0x2A Flemish",
+											"0x2B Wallon",
+											"0x2C Unknown",
+											"0x2D Unknown",
+											"0x2E Unknown",
+											"0x2F Reserved",
+											"0x30 Reserved",
+											"0x31 Reserved",
+											"0x32 Reserved",
+											"0x33 Reserved",
+											"0x34 Reserved",
+											"0x35 Reserved",
+											"0x36 Reserved",
+											"0x39 Reserved",
+											"0x37 Reserved",
+											"0x38 Reserved",
+											"0x3A Reserved",
+											"0x3B Reserved",
+											"0x3C Reserved",
+											"0x3D Reserved",
+											"0x3E Reserved",
+											"0x3F Reserved",
+											"0x40 Unknown",
+											"0x41 Unknown",
+											"0x42 Unknown",
+											"0x43 Unknown",
+											"0x44 Unknown",
+											"0x45 Zulu",
+											"0x46 Vietnamese",
+											"0x47 Uzbek",
+											"0x48 Urdu",
+											"0x49 Ukrainian",
+											"0x4A Thai",
+											"0x4B Telugu",
+											"0x4C Tatar",
+											"0x4D Tamil",
+											"0x4E Tadzhik",
+											"0x4F Swahili",
+											"0x50 Sranan Tongo",
+											"0x51 Somali",
+											"0x52 Sinhalese",
+											"0x53 Shona",
+											"0x54 Serbo-croat",
+											"0x55 Ruthenian",
+											"0x56 Russian",
+											"0x57 Quechua",
+											"0x58 Pushtu",
+											"0x59 Punjabi",
+											"0x5A Persian",
+											"0x5B Papamiento",
+											"0x5C Oriya",
+											"0x5D Nepali",
+											"0x5E Ndebele",
+											"0x5F Marathi",
+											"0x60 Moldavian",
+											"0x61 Malaysian",
+											"0x62 Malagasay",
+											"0x63 Macedonian",
+											"0x64 Laotian",
+											"0x65 Korean",
+											"0x66 Khmer",
+											"0x67 Kazakh",
+											"0x68 Kannada",
+											"0x69 Japanese",
+											"0x6A Indonesian",
+											"0x6B Hindi",
+											"0x6C Hebrew",
+											"0x6D Hausa",
+											"0x6E Gurani",
+											"0x6F Gujurati",
+											"0x70 Greek",
+											"0x71 Georgian",
+											"0x72 Fulani",
+											"0x73 Dari",
+											"0x74 Churash",
+											"0x75 Chinese",
+											"0x76 Burmese",
+											"0x77 Bulgarian",
+											"0x78 Bengali",
+											"0x79 Bielorussian",
+											"0x7A Bambora",
+											"0x7B Azerbaijani",
+											"0x7C Assamese",
+											"0x7D Armenian",
+											"0x7E Arabic",
+											"0x7F Amharic"
+										]
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"templates": {
+				"title": "Style templates to use at creation",
+				"description": "Style/limit/check templates to set when adding to a project",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string",
+					"#ref": "enumstyletemplates",
+					"enum": []
+				}
+			},
+			"basenames": {
+				"options": {
+					"hidden": true
+				}
+			}
+		}
+	},
+	"filetemplates/FPC/FPC.filebase": {
+		"name": "FPC",
+		"description": "for producing generic .FPC (Unipac) files",
+		"filetype": {
+			"type": "fpc",
+			"ext": "fpc",
+			"options": {
+				"FPS": 25,
+				"encoding": {
+					"F1": "LATIN",
+					"F2": "UNICODE"
+				}
+			}
+		},
+		"templates": [
+			"styles/pacopen.json"
+		]
+	},
+	"filetemplates/FPC/FPC.filetemplate": {
+		"name": "FPC",
+		"description": "for producing  subtitles as FPC for DVB, online, or burnt-in",
+		"base": [
+			"FPC/FPC.filebase"
+		],
+		"schema": [
+			"FPC/fpc.schema"
+		],
+		"defaulttag": "FPC",
+		"filetype": {
+			"type": "fpc",
+			"ext": "fpc",
+			"options": {
+				"FPS": 25,
+				"encoding": {
+					"F1": "LATIN",
+					"F2": "UNICODE"
+				}
+			}
+		},
+		"templates": [
+			"styles/pacopen.json"
+		],
+		"subtitlezero": {
+			"addstl0": true,
+			"defaults": [
+				{
+					"tag": "story:",
+					"value": "CHANGEME"
+				},
+				{
+					"tag": "lang:",
+					"value": "LNG"
+				}
+			],
+			"readstorylangfromname": true
+		}
+	},
+	"filetemplates/FPC/fpc.schema": {
+		"title": "Edit FPC Template",
+		"type": "object",
+		"options": {
+			"disable_collapse": true,
+			"disable_array_add": false,
+			"disable_array_delete": false,
+			"disable_array_reorder": false,
+			"disable_properties": true
+		},
+		"properties": {
+			"name": {
+				"title": "Title/short description",
+				"description": "Enter a short name for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"description": {
+				"title": "Description",
+				"description": "Enter a long description for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"base": {
+				"title": "Base on File Templates",
+				"description": "Add an ordered list of based File Templates to base this template on",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"schema": {
+				"title": "Schema(s) to edit this template",
+				"description": "Add an ordered list of schema files",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"defaulttag": {
+				"title": "Default Column Tag name ",
+				"description": "Enter the default tag to use when adding to projects",
+				"type": "string"
+			},
+			"filetype": {
+				"title": "File type and options",
+				"description": "File type selection and options",
+				"type": "object",
+				"options": {
+					"disable_collapse": true
+				},
+				"properties": {
+					"type": {
+						"title": "File Type",
+						"description": "Select the file type which this File Template will create",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"ext": {
+						"title": "Extension",
+						"description": "Enter the file extension to use",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"options": {
+						"title": "FPC Options",
+						"description": "Select options for FPC file creation",
+						"type": "object",
+						"options": {
+							"disable_collapse": true
+						},
+						"properties": {
+							"FPS": {
+								"title": "frame rate",
+								"description": "Select the frame rate of the file created",
+								"type": "string",
+								"enum": [
+									23.976,
+									24,
+									25,
+									29.97
+								]
+							},
+							"encoding": {
+								"title": "FPC encoding",
+								"description": "Encoding for Font1 and Font 2 in FPC is fixed LATIN/UNICODE",
+								"type": "object",
+								"options": {
+									"disable_collapse": false
+								},
+								"properties": {
+									"F1": {
+										"title": "F1 encoding",
+										"type": "string",
+										"readonly": true,
+										"enum": [
+											"LATIN",
+											"CYRILLIC",
+											"CYRILLICLATIN",
+											"GREEK",
+											"ARABIC",
+											"HEBREW",
+											"THAI",
+											"BIG5",
+											"GBK",
+											"HKSCS",
+											"KSC",
+											"SJIS",
+											"UNICODE"
+										]
+									},
+									"F2": {
+										"title": "F2 encoding",
+										"type": "string",
+										"readonly": true,
+										"enum": [
+											"LATIN",
+											"CYRILLIC",
+											"CYRILLICLATIN",
+											"GREEK",
+											"ARABIC",
+											"HEBREW",
+											"THAI",
+											"BIG5",
+											"GBK",
+											"HKSCS",
+											"KSC",
+											"SJIS",
+											"UNICODE"
+										]
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"templates": {
+				"title": "Style templates to use at creation",
+				"description": "Style/limit/check templates to set when adding to a project",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string",
+					"#ref": "enumstyletemplates",
+					"enum": []
+				}
+			},
+			"basenames": {
+				"options": {
+					"hidden": true
+				}
+			}
+		}
+	},
+	"filetemplates/PAC/PAC.filebase": {
+		"name": "PAC",
+		"description": "for producing generic .PAC files",
+		"filetype": {
+			"type": "pac",
+			"ext": "pac",
+			"options": {
+				"FPS": 25,
+				"encoding": {
+					"F1": "LATIN",
+					"F2": "LATIN"
+				}
+			}
+		},
+		"templates": [
+			"styles/pacopen.json"
+		]
+	},
+	"filetemplates/PAC/PAC.filetemplate": {
+		"name": "PAC",
+		"description": "for producing  subtitles as PAC for DVB, online, or burnt-in",
+		"base": [
+			"PAC/PAC.filebase"
+		],
+		"schema": [
+			"PAC/pac.schema"
+		],
+		"defaulttag": "PAC",
+		"filetype": {
+			"type": "pac",
+			"ext": "pac",
+			"options": {
+				"FPS": 25,
+				"encoding": {
+					"F1": "LATIN",
+					"F2": "LATIN"
+				}
+			}
+		},
+		"templates": [
+			"styles/pacopen.json"
+		],
+		"subtitlezero": {
+			"addstl0": true,
+			"defaults": [
+				{
+					"tag": "story:",
+					"value": "CHANGEME"
+				},
+				{
+					"tag": "lang:",
+					"value": "LNG"
+				}
+			],
+			"readstorylangfromname": true
+		}
+	},
+	"filetemplates/PAC/pac.schema": {
+		"title": "Edit PAC Template",
+		"type": "object",
+		"options": {
+			"disable_collapse": true,
+			"disable_array_add": false,
+			"disable_array_delete": false,
+			"disable_array_reorder": false,
+			"disable_properties": true
+		},
+		"properties": {
+			"name": {
+				"title": "Title/short description",
+				"description": "Enter a short name for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"description": {
+				"title": "Description",
+				"description": "Enter a long description for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"base": {
+				"title": "Base on File Templates",
+				"description": "Add an ordered list of based File Templates to base this template on",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"schema": {
+				"title": "Schema(s) to edit this template",
+				"description": "Add an ordered list of schema files",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"defaulttag": {
+				"title": "Default Column Tag name ",
+				"description": "Enter the default tag to use when adding to projects",
+				"type": "string"
+			},
+			"filetype": {
+				"title": "File type and options",
+				"description": "File type selection and options",
+				"type": "object",
+				"options": {
+					"disable_collapse": true
+				},
+				"properties": {
+					"type": {
+						"title": "File Type",
+						"description": "Select the file type which this File Template will create",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"ext": {
+						"title": "Extension",
+						"description": "Enter the file extension to use",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"options": {
+						"title": "PAC Options",
+						"description": "Select options for PAC file creation",
+						"type": "object",
+						"options": {
+							"disable_collapse": true
+						},
+						"properties": {
+							"FPS": {
+								"title": "frame rate",
+								"description": "Select the frame rate of the file created",
+								"type": "string",
+								"enum": [
+									23.976,
+									24,
+									25,
+									29.97
+								]
+							},
+							"encoding": {
+								"title": "PAC encoding",
+								"description": "Select the encoding for Font1 and Font 2 in PAC",
+								"type": "object",
+								"options": {
+									"disable_collapse": false
+								},
+								"properties": {
+									"F1": {
+										"title": "F1 encoding",
+										"type": "string",
+										"enum": [
+											"LATIN",
+											"CYRILLIC",
+											"CYRILLICLATIN",
+											"GREEK",
+											"ARABIC",
+											"HEBREW",
+											"THAI",
+											"BIG5",
+											"GBK",
+											"HKSCS",
+											"KSC",
+											"SJIS",
+											"UNICODE"
+										]
+									},
+									"F2": {
+										"title": "F2 encoding",
+										"type": "string",
+										"enum": [
+											"LATIN",
+											"CYRILLIC",
+											"CYRILLICLATIN",
+											"GREEK",
+											"ARABIC",
+											"HEBREW",
+											"THAI",
+											"BIG5",
+											"GBK",
+											"HKSCS",
+											"KSC",
+											"SJIS",
+											"UNICODE"
+										]
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"templates": {
+				"title": "Style templates to use at creation",
+				"description": "Style/limit/check templates to set when adding to a project",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string",
+					"#ref": "enumstyletemplates",
+					"enum": []
+				}
+			},
+			"basenames": {
+				"options": {
+					"hidden": true
+				}
+			}
+		}
+	},
+	"filetemplates/SRT/SRT.filebase": {
+		"name": "SRT File",
+		"description": "SRT generic subtitle file in unicode (utf8)",
+		"schema": [
+			"SRT/srt.schema"
+		],
+		"defaulttag": "SRT",
+		"filetype": {
+			"type": "srt",
+			"ext": "srt"
+		}
+	},
+	"filetemplates/SRT/SRT.filetemplate": {
+		"name": "SRT File",
+		"description": "SRT generic subtitle file in unicode (utf8)",
+		"base": [
+			"SRT/SRT.filebase"
+		]
+	},
+	"filetemplates/SRT/srt.schema": {
+		"title": "Edit SRT Template",
+		"type": "object",
+		"options": {
+			"disable_collapse": true,
+			"disable_array_add": false,
+			"disable_array_delete": false,
+			"disable_array_reorder": false,
+			"disable_properties": true
+		},
+		"properties": {
+			"name": {
+				"title": "Title/short description",
+				"description": "Enter a short name for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"description": {
+				"title": "Description",
+				"description": "Enter a long description for this File Template",
+				"type": "string",
+				"options": {
+					"hidden": true
+				}
+			},
+			"base": {
+				"title": "Base on File Templates",
+				"description": "Add an ordered list of based File Templates to base this template on",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"schema": {
+				"title": "Schema(s) to edit this template",
+				"description": "Add an ordered list of schema files",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string"
+				},
+				"options": {
+					"hidden": true
+				}
+			},
+			"defaulttag": {
+				"title": "Default Column Tag name ",
+				"description": "Enter the default tag to use when adding to projects",
+				"type": "string"
+			},
+			"filetype": {
+				"title": "File type and options",
+				"description": "File type selection and options",
+				"type": "object",
+				"options": {
+					"hidden": true
+				},
+				"properties": {
+					"type": {
+						"title": "File Type",
+						"description": "Select the file type which this File Template will create",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					},
+					"ext": {
+						"title": "Extension",
+						"description": "Enter the file extension to use",
+						"type": "string",
+						"options": {
+							"hidden": true
+						}
+					}
+				}
+			},
+			"templates": {
+				"title": "Style templates to use at creation",
+				"description": "Style/limit/check templates to set when adding to a project",
+				"type": "array",
+				"format": "table",
+				"items": {
+					"type": "string",
+					"#ref": "enumstyletemplates",
+					"enum": []
+				}
+			},
+			"basenames": {
+				"options": {
+					"hidden": true
+				}
+			}
+		}
+	}
+}
